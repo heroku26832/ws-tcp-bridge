@@ -7,6 +7,10 @@
     "optimist": "~0.3.5",
     "ws": "~0.4.23"
   },
+  "main": "ws-tcp-bridge",
+  "scripts": {
+    "start": "node ws-tcp-bridge"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
