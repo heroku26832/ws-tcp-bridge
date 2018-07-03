@@ -14,7 +14,7 @@ const argv = require('commander');
 //			.describe('method','either tcp2ws or ws2tcp').argv;
 argv
     .option('-m --method <method>', 'either tcp2ws or ws2tcp')
-    .option('-l --lport <lport>', 'port to listen for connections on.')
+    .option('-p --port <port>', 'port to listen for connections on.')
     .option('-s --rhost <address>', 'address to forward the connection to.')
     .parse(process.argv);
 
@@ -95,7 +95,7 @@ function initSocketCallbacks(state,ws,s) {
 
 function tcp2ws() {
 	console.log('proxy mode tcp -> ws');
-	console.log('forwarding port ' + process.env['lport'] + ' to ' + process.env['rhost']);
+	console.log('forwarding port ' + process.env['PORT'] + ' to ' + process.env['rhost']);
 
 	var server = net.createServer(function(s) {
 		var ws = new ws_module(process.env['rhost']);
@@ -108,15 +108,15 @@ function tcp2ws() {
 		};
 		initSocketCallbacks(state,ws,s);
 	});
-	server.listen(process.env['lport']);
+	server.listen(process.env['PORT']);
 }
 
 function ws2tcp() {
 
 	console.log('proxy mode ws -> tcp');
-	console.log('forwarding port ' + process.env['lport'] + ' to ' + process.env['rhost']);
+	console.log('forwarding port ' + process.env['PORT'] + ' to ' + process.env['rhost']);
 
-	wss = new ws_module.Server({port: process.env['lport']});
+	wss = new ws_module.Server({port: process.env['PORT']});
 	wss.on('connection', function(ws) {
 		var addr_port = process.env['rhost'].split(':');
 		var s = net.connect(addr_port[1],addr_port[0]);
