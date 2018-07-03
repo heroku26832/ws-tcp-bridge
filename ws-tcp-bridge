@@ -131,11 +131,11 @@ function ws2tcp() {
 	});
 
 }
-
-if(argv.method == 'tcp2ws') {
-	tcp2ws();
-} else if (argv.method == 'ws2tcp') {
-	ws2tcp();
-} else {
-	console.error("Method must be either tcp2ws or ws2tcp!");
-}
+console.error(process.env['METHOD'])
+//if(argv.method == 'tcp2ws') {
+//	tcp2ws();
+//} else if (argv.method == 'ws2tcp') {
+//	ws2tcp();
+//} else {
+//	console.error("Method must be either tcp2ws or ws2tcp!");
+//}
