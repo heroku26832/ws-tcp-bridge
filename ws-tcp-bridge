@@ -2,7 +2,7 @@
 
 var ws_module = require('ws');
 var net = require('net');
-const server = require('commander');
+const argv = require('commander');
 
 //var argv = require('optimist')
 //			.usage('Forward tcp connections to websocket servers, or websocket connections to tcp servers.')
@@ -12,7 +12,7 @@ const server = require('commander');
 //			.describe('rhost','address to forward the connection to.')
 //			.demand('method')
 //			.describe('method','either tcp2ws or ws2tcp').argv;
-server
+argv
     .option('-m --method <method>', 'either tcp2ws or ws2tcp')
     .option('-l --lport <lport>', 'port to listen for connections on.')
     .option('-s --rhost <address>', 'address to forward the connection to.')
