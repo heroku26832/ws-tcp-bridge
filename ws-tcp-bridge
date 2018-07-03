@@ -131,7 +131,7 @@ function ws2tcp() {
 	});
 
 }
-console.error(process.env['METHOD'])
+console.error(process.env['method'])
 //if(argv.method == 'tcp2ws') {
 //	tcp2ws();
 //} else if (argv.method == 'ws2tcp') {
